@@ -1,0 +1,30 @@
+# 复制为 config/settings_config.yml 再按需修改。
+# settings_config.yml 已在 .gitignore 里（它通常带着本机绝对路径和你的作品名）。
+
+# 单章最多重写几次（闸门 + 审稿人共享这个预算）
+max_retries: 5
+
+# 单章目标字数（按"汉字 + 英文单词"计，不含标点）
+target_word_count: 2500
+
+# 一次运行连续写几章
+default_generate_chapters: 5
+
+# 事件账本"进行中"最多保留多少条，超出的归档（仍参与防撞梗）
+max_ongoing_events: 15
+
+# 正文输出目录。相对路径按项目根目录解析；也可以写绝对路径
+output_dir: output/novel
+
+# ==========================================
+# 新行为开关
+# 纪律：任何会改变产出/排序的开关先关或先 dry，观察一轮再收紧。
+# ==========================================
+features:
+  normalize_output: true      # 只修格式：去"本章完"、去标题里重复的章节号、合并空行
+  quality_gate: "dry"         # off | dry（只记录不拦截）| enforce（硬性问题打回重写）
+  events_ledger: true         # 事件账本：去重 + 封顶 + 归档
+  fused_retrieval: false      # 多路召回 + RRF/MMR 融合
+  retrieval_factors: false    # 融合后的 recency/importance 加权
+  foreshadow_block: true      # 把到期伏笔注入 planner/writer
+  directives: true            # 每章热读 config/directives/inbox.jsonl

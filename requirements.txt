@@ -1,0 +1,13 @@
+# LangGraph 流水线
+langgraph>=0.2.0
+
+# 模型 / 向量库
+langchain-core>=0.3.0
+langchain-openai>=0.2.0          # 火山引擎 Ark 兼容 OpenAI 协议
+langchain-chroma>=0.1.0
+langchain-ollama>=0.2.0          # 本地 bge-m3 词嵌入
+langchain-text-splitters>=0.3.0
+chromadb>=0.5.0
+
+# 配置
+PyYAML>=6.0

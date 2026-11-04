@@ -1,0 +1,3 @@
+collection_name: novel_memory
+persist_directory: .\memory\chroma_db
+top_k: 8

@@ -1,0 +1,4 @@
+memory_prompt_path: memory_prompt.txt
+writer_prompt_path: writer_prompt.txt
+reviewer_prompt_path: reviewer_prompt.txt
+planner_prompt_path: planner_prompt.txt
