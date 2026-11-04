@@ -1,0 +1,36 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: py${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # 测试只依赖标准库，所以这里故意不装 requirements.txt：
+      # 账本、判据、融合、指令四个模块都是纯逻辑，装 chromadb/langchain 只会拖慢 CI。
+      - name: Unit tests
+        run: python -m unittest discover -s tests -t . -v
+
+      # 依赖不装，但语法要查：这一步能抓到任何 .py 的语法错误
+      - name: Syntax check
+        run: python -m compileall -q agent model utils main.py

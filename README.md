@@ -6,8 +6,8 @@
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](#快速开始)
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.2%2B-1c3d5a.svg)](https://github.com/langchain-ai/langgraph)
-[![Tests](https://img.shields.io/badge/tests-90%20passed-brightgreen.svg)](#测试)
-[![License](https://img.shields.io/badge/license-未指定-lightgrey.svg)](#许可证)
+[![tests](https://github.com/ChenZY-bot/Writer/actions/workflows/tests.yml/badge.svg)](https://github.com/ChenZY-bot/Writer/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **English** — A LangGraph-based Chinese web-novel writing pipeline with an objective
 quality gate, an event/foreshadow ledger, and a hot-reloadable human-in-the-loop inbox.
@@ -126,7 +126,7 @@ FS-012-01《木剑的裂痕》；第12章埋设；承诺第20章前回收，已�
 ## 快速开始
 
 ```bash
-git clone <your-repo-url> writer
+git clone https://github.com/ChenZY-bot/Writer.git writer
 cd writer
 
 python -m venv .venv
@@ -219,6 +219,9 @@ python -m unittest discover -s tests -t .
 # Ran 90 tests ... OK
 ```
 
+CI（[`.github/workflows/tests.yml`](.github/workflows/tests.yml)）在 Python 3.10 / 3.11 / 3.12 上跑同一套测试，
+且**不安装任何第三方依赖**——因为测试只用到标准库。
+
 测试只覆盖**纯逻辑**（账本、判据、融合、指令），不需要 API Key、不需要网络、不需要向量库。
 覆盖的回归点包括：
 
@@ -273,5 +276,6 @@ python -m unittest discover -s tests -t .
 
 ## 许可证
 
-本项目**暂未选择开源许可证**。在补充 `LICENSE` 之前，默认保留所有权利；
-如需引用或二次分发，请先联系作者。
+[MIT](LICENSE) © 2026 ChenZY-bot
+
+可以自由使用、修改、分发，包括商业用途；保留版权声明与许可声明即可。
